@@ -3,10 +3,14 @@
 /**********************************
 Tabla de contenidos:
 1. Fuente
-2. Colores
+2. Colores (variables)
 3. Estilos generales
-4. Header
-5. Footer
+4. Card sedans
+5. Card suvs
+6. Card luxury
+7. Responsive
+
+Nota: Flujo de trabajo mobile-first
 ***********************************/
 
 /**********************/
@@ -31,12 +35,146 @@ Tabla de contenidos:
 /******   Estilos Generales   *****/
 /**********************************/
 body {
+    background-color: var(--very-light-gray);
     font-family: 'Lexend Deca', sans-serif;
-    font-size: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr;
+    margin: 10px;
+}
+
+.card {
+    background-color: var(--transp-white);
+    padding: 40px;
+}
+
+img {
+    width: 100px;
+}
+
+h2 {
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--very-light-gray);
+}
+
+p {
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: 400;
+    color: var(--transp-white);
+}
+
+.button {
+    background-color: var(--very-light-gray);
+    font-size: 19px;
+    border: none;
+    cursor: pointer;
+    padding: 20px 40px;
+    border-radius: 40px;
+}
+
+/****************************/
+/******   Card Sedans   *****/
+/****************************/
+.card__sedans {
+    background-color: var(--bright-orange);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.button__sedans {
+    color: var(--bright-orange);
+}
+
+/**************************/
+/******   Card Suvs   *****/
+/**************************/
+.card__suvs {
+    background-color: var(--dark-cyan);
+}
+
+.button__suvs {
+    color: var(--dark-cyan);
+}
+
+/****************************/
+/******   Card Luxury   *****/
+/****************************/
+.card__luxury {
+    background-color: var(--very-dark-cyan);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.button__luxury {
+    color: var(--very-dark-cyan);
+}
+
+
+/***************************/
+/******   Responsive   *****/
+/***************************/
+@media only screen and (min-width: 1200px) {
+
+    /* Estilos generales */
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    .card {
+        width: 200px;
+        border-radius: 0;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    p {
+        font-size: 15px;
+        line-height: 26px;
+        padding: 0 0 20px;
+    }
+
+    .button {
+        border: 2px solid var(--transp-white);
+        font-size: 15px;
+        padding: 15px 30px;
+        border-radius: 30px;
+    }
+
+    /* Button Hover State */
+    .button:hover {
+        border: 2px solid var(--transp-white);
+        background-color: transparent;
+        color: var(--transp-white);
+    }
+
+    /* Card Sedans */
+    .card__sedans {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    /* Card Luxury */
+    .card__luxury {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
 }
